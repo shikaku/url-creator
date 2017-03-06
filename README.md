@@ -35,3 +35,7 @@ url.toString();
 - unsetQuery('key')
 - reset()
 - toString()
+
+#### Links
+
+npm - https://www.npmjs.com/package/url-creator
