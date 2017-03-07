@@ -2,10 +2,10 @@ var url = require('url');
 
 var URLCreator = function(_url, queryParams) {
   if (!(this instanceof URLCreator)) return new URLCreator(_url, queryParams);
-  _url = _url.toString();
+  _url = (_url || '').toString();
   this._initialUrl = _url;
   this._initialQueryParams = queryParams;
-  this._url = url.parse(_url || '', true, true);
+  this._url = url.parse(_url, true, true);
   delete this._url.search;
   for (var prop in queryParams) if (queryParams.hasOwnProperty(prop)) {
     this.setQuery(prop, queryParams[prop]);

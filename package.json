@@ -1,6 +1,6 @@
 {
   "name": "url-creator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Util for building URL",
   "repository": {
     "type": "http",
