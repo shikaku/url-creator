@@ -1,11 +1,11 @@
-# url-builder
+# url-creator
 
 ###Effortless URL assembling
 
 ### Examples
 
 ```
-let url = new URLBuilder('http://domain/pathname/', {foo: 'foo'});
+let url = new URLCreator('http://domain/pathname/', {foo: 'foo'});
 ```
 
 ```

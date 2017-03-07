@@ -1,7 +1,7 @@
 var url = require('url');
 
-var URLBuilder = function(_url, queryParams) {
-  if (!(this instanceof URLBuilder)) return new URLBuilder(_url, queryParams);
+var URLCreator = function(_url, queryParams) {
+  if (!(this instanceof URLCreator)) return new URLCreator(_url, queryParams);
   _url = _url.toString();
   this._originUrl = _url;
   this._url = url.parse(_url || '', true, true);
@@ -10,36 +10,36 @@ var URLBuilder = function(_url, queryParams) {
     this.setQuery(prop, queryParams[prop]);
   }
 }
-URLBuilder.prototype.get = function(key) {
+URLCreator.prototype.get = function(key) {
   return this._url[key];
 }
-URLBuilder.prototype.set = function(key, val) {
+URLCreator.prototype.set = function(key, val) {
   this._url[key] = val;
   return this;
 }
-URLBuilder.prototype.unset = function(key) {
+URLCreator.prototype.unset = function(key) {
   delete this._url[key];
   return this;
 }
-URLBuilder.prototype.getQuery = function(key) {
+URLCreator.prototype.getQuery = function(key) {
   return this._url.query[key];
 }
-URLBuilder.prototype.setQuery = function(key, val) {
+URLCreator.prototype.setQuery = function(key, val) {
   this._url.query[key] = val;
   return this;
 }
-URLBuilder.prototype.unsetQuery = function(key) {
+URLCreator.prototype.unsetQuery = function(key) {
   if (this._url.query) {
     delete this._url.query[key];
   }
   return this;
 }
-URLBuilder.prototype.reset = function() {
-  URLBuilder.call(this, this._originUrl);
+URLCreator.prototype.reset = function() {
+  URLCreator.call(this, this._originUrl);
   return this;
 }
-URLBuilder.prototype.toString = function() {
+URLCreator.prototype.toString = function() {
   return url.format(this._url);
 }
 
-module.exports = URLBuilder;
+module.exports = URLCreator;
